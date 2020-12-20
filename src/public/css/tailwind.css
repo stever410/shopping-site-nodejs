@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
@@ -11221,7 +11221,7 @@ video {
 }
 
 .font-custom{
-  font-family: Montserrat, sans-serif;
+  font-family: Quicksand, sans-serif;
 }
 
 .font-thin{
@@ -41847,7 +41847,7 @@ video {
   }
 
   .sm\:font-custom{
-    font-family: Montserrat, sans-serif;
+    font-family: Quicksand, sans-serif;
   }
 
   .sm\:font-thin{
@@ -72395,7 +72395,7 @@ video {
   }
 
   .md\:font-custom{
-    font-family: Montserrat, sans-serif;
+    font-family: Quicksand, sans-serif;
   }
 
   .md\:font-thin{
@@ -102943,7 +102943,7 @@ video {
   }
 
   .lg\:font-custom{
-    font-family: Montserrat, sans-serif;
+    font-family: Quicksand, sans-serif;
   }
 
   .lg\:font-thin{
@@ -133491,7 +133491,7 @@ video {
   }
 
   .xl\:font-custom{
-    font-family: Montserrat, sans-serif;
+    font-family: Quicksand, sans-serif;
   }
 
   .xl\:font-thin{
@@ -164039,7 +164039,7 @@ video {
   }
 
   .\32xl\:font-custom{
-    font-family: Montserrat, sans-serif;
+    font-family: Quicksand, sans-serif;
   }
 
   .\32xl\:font-thin{
@@ -183912,3 +183912,4 @@ video {
             animation: bounce 1s infinite;
   }
 }
+

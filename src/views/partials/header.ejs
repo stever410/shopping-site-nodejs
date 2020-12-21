@@ -1,15 +1,22 @@
-<header class="pt-4 flex justify-between">
-    <form>
-        <i class="fas fa-search mr-2"></i>
-        <input class="placeholder-gray-700 focus:outline-none" type="text" placeholder="Search">
+<header class="mt-4 flex justify-between">
+    <form class="bg-gray-100 flex justify-center items-center rounded-full">
+        <i class="fas fa-search text-gray-700 mx-3"></i>
+        <input class="placeholder-gray-700 focus:outline-none bg-transparent p-1" type="text" placeholder="Search">
     </form>
-    <a href="#" class="-mt-3">
+    <a href="#">
         <img class="w-12 h-12" src="/images/icons/nike.svg">
     </a>
-    <div class="flex">
-        <i id="user-button" class="block far fa-user fa-lg cursor-pointer"></i>
-        <i class="block far fa-heart fa-lg mx-5"></i>
-        <i class="block fas fa-shopping-bag fa-lg"></i>
+    <div class="flex justify-content items-center">
+        <% if (typeof name !=='undefined' ) { %>
+            <span>
+                <img class="w-8 h-8 rounded-full" src="<%= image %>" alt="">
+            </span>
+            <p class="ml-5"><%= name %></p>
+        <% } else { %>
+            <i id="user-button" class="block far fa-user fa-lg cursor-pointer"></i>
+        <% } %>
+        <i class="block far fa-heart fa-lg mx-5 cursor-pointer"></i>
+        <i class="block fas fa-shopping-bag fa-lg cursor-pointer"></i>
     </div>
 </header>
 

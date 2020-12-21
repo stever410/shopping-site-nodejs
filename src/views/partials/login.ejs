@@ -10,11 +10,12 @@
         <% } %>
         <div class="flex justify-center w-full">
             <form id="login-form" class="flex flex-col w-3/5" method="POST" action="/auth/login">
-                <input class="border-solid border-2 px-4 py-2 placeholder-gray-400 focus:outline-none" type="text"
+                <input class="border-solid border-2 px-4 py-2 placeholder-gray-400 focus:outline-none" type="email"
                     name="email" placeholder="Email">
                 <input class="mt-4 border-solid border-2 px-4 py-2 placeholder-gray-400 focus:outline-none" type="password"
                     name="password" placeholder="Password">
                 <button type="submit" class="mt-4 bg-black p-2 text-white font-bold" id="login-button">SIGN IN</button>
+                <p class="mt-4 text-center font-medium text-gray-500">Not a member? <span class="text-black underline cursor-pointer" id="register-link">Join Us</span></p>
                 <!-- <a href="#" class="mt-4 bg-red-600 p-2 text-white font-bold text-center">SIGN IN WITH GOOGLE</a> -->
             </form>
         </div>

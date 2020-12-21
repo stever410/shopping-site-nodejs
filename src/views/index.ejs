@@ -28,53 +28,51 @@
                     </ul>
                 </div>
             </div>
-            <%- include ('partials/login') %>
-
-                <main class="pb-10">
-                    <!-- <h2 class="text-3xl mt-3">NIKE</h2> -->
-                    <div class="grid gap-6 mt-8 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
-                        <div>
-                            <a href="#">
-                                <img class="block h-auto w-auto" src="/images/sb-zoom.jpg" alt="">
-                            </a>
-                            <div class="flex flex-col mt-4">
-                                <h4 class="font-semibold">Nike SB Zoom Stefan Janoski RM</h4>
-                                <p class="my-1 text-gray-400 font-medium">Skate shoe</p>
-                                <p class="text-gray-400 font-medium">$295.00</p>
-                            </div>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <img class="block h-auto w-auto" src="/images/kyrie-7-ep.jpg" alt="">
-                            </a>
-                            <div class="flex flex-col mt-4">
-                                <h4 class="font-semibold">Kyrie 7 EP</h4>
-                                <p class="my-1 text-gray-400 font-medium">Basketball Shoe</p>
-                                <p class="text-gray-400 font-medium">$245.00</p>
-                            </div>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <img class="block h-auto w-auto" src="/images/air-force-1-mid.jpg" alt="">
-                            </a>
-                            <div class="flex flex-col mt-4">
-                                <h4 class="font-semibold">Nike Air Force 1 Mid '07</h4>
-                                <p class="my-1 text-gray-400 font-medium">Men's Shoe</p>
-                                <p class="text-gray-400 font-medium">$295.00</p>
-                            </div>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <img class="block h-auto w-auto" src="/images/air-jordan-1-low.jpg" alt="">
-                            </a>
-                            <div class="flex flex-col mt-4">
-                                <h4 class="font-semibold">Air Jordan 1 Low</h4>
-                                <p class="my-1 text-gray-400 font-medium">Shoe</p>
-                                <p class="text-gray-400 font-medium">$300.00</p>
-                            </div>
+            <main class="pb-10">
+                <!-- <h2 class="text-3xl mt-3">NIKE</h2> -->
+                <div class="grid gap-6 mt-8 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
+                    <div>
+                        <a href="#">
+                            <img class="block h-auto w-auto" src="/images/sb-zoom.jpg" alt="">
+                        </a>
+                        <div class="flex flex-col mt-4">
+                            <h4 class="font-semibold">Nike SB Zoom Stefan Janoski RM</h4>
+                            <p class="my-1 text-gray-400 font-medium">Skate shoe</p>
+                            <p class="text-gray-400 font-medium">$295.00</p>
                         </div>
                     </div>
-                </main>
+                    <div>
+                        <a href="#">
+                            <img class="block h-auto w-auto" src="/images/kyrie-7-ep.jpg" alt="">
+                        </a>
+                        <div class="flex flex-col mt-4">
+                            <h4 class="font-semibold">Kyrie 7 EP</h4>
+                            <p class="my-1 text-gray-400 font-medium">Basketball Shoe</p>
+                            <p class="text-gray-400 font-medium">$245.00</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img class="block h-auto w-auto" src="/images/air-force-1-mid.jpg" alt="">
+                        </a>
+                        <div class="flex flex-col mt-4">
+                            <h4 class="font-semibold">Nike Air Force 1 Mid '07</h4>
+                            <p class="my-1 text-gray-400 font-medium">Men's Shoe</p>
+                            <p class="text-gray-400 font-medium">$295.00</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img class="block h-auto w-auto" src="/images/air-jordan-1-low.jpg" alt="">
+                        </a>
+                        <div class="flex flex-col mt-4">
+                            <h4 class="font-semibold">Air Jordan 1 Low</h4>
+                            <p class="my-1 text-gray-400 font-medium">Shoe</p>
+                            <p class="text-gray-400 font-medium">$300.00</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js"></script>
     <script src="https://kit.fontawesome.com/1de4292787.js" crossorigin="anonymous"></script>
@@ -82,8 +80,14 @@
         const userButton = document.getElementById('user-button');
         const loginModal = document.getElementById('login-modal');
         const loginModalCloseButton = document.getElementById('login-modal-close');
+        const registerModal = document.getElementById('register-modal');
+        const registerModalCloseButton = document.getElementById('register-modal-close');
         const loginForm = document.getElementById('login-form');
-
+        const registerForm = document.getElementById('register-form');
+        const registerLink = document.getElementById('register-link');
+        const loginLink = document.getElementById('login-link');
+        const logoutButton = document.getElementById('logout-button');
+        const logoutForm = document.getElementById('logout-form');
         // Carousel init
         document.addEventListener('DOMContentLoaded', () => {
             new Splide('.splide', {
@@ -95,15 +99,40 @@
         });
 
         // Show login modal
-        userButton.addEventListener('click', (event) => {
-            loginModal.classList.remove('hidden');
-        });
+        if (userButton) {
+            userButton.addEventListener('click', (event) => {
+                loginModal.classList.remove('hidden');
+            });
+        }
 
         // Hide login modal
         loginModalCloseButton.addEventListener('click', (event) => {
             loginModal.classList.add('hidden');
         });
 
+        // Hide register modal
+        registerModalCloseButton.addEventListener('click', (event) => {
+            registerModal.classList.add('hidden');
+        });
+
+        // Change from login to sign up
+        registerLink.addEventListener('click', (event) => {
+            loginModal.classList.add('hidden');
+            registerModal.classList.remove('hidden');
+        });
+
+        // Change from sign up to login
+        loginLink.addEventListener('click', (event) => {
+            loginModal.classList.remove('hidden');
+            registerModal.classList.add('hidden');
+        });
+
+        // Submit logout form
+        if (logoutButton) {
+            logoutButton.addEventListener('click', (event) => {
+                logoutForm.submit();
+            })
+        }
         // // Login form submit
         // loginForm.addEventListener('submit', async (event) => {
         //     event.preventDefault();

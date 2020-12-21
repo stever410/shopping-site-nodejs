@@ -1,0 +1,31 @@
+<div id="register-modal" class="h-screen w-screen fixed top-1/2 left-1/2 z-10 bg-black bg-opacity-80 hidden"
+    style="transform: translate(-50%, -50%);">
+    <div class="bg-white mx-auto pt-8 pb-16 w-2/5 mt-32 z-50 relative">
+        <span id="register-modal-close"
+            class="font-bold text-4xl absolute top-0 right-4 text-gray-800 cursor-pointer hover:text-gray-300">&times;</span>
+        <img class="w-14 h-14 mx-auto" src="/images/icons/nike.svg">
+        <h4 class="font-bold text-center my-4 text-2xl">BECOME A NIKE MEMBER</h4>
+        <% if (typeof message !== 'undefined' && message.length > 0) { %>
+            <%= message %>
+        <% } %>
+        <div class="flex justify-center w-full">
+            <form id="register-form" class="flex flex-col w-3/5" method="POST" action="/auth/register">
+                <input class="border-solid border-2 px-4 py-2 placeholder-gray-400 focus:outline-none" type="email"
+                    name="email" placeholder="Email">
+                <input class="mt-4 border-solid border-2 px-4 py-2 placeholder-gray-400 focus:outline-none" type="password"
+                    name="password" placeholder="Password">
+                <input class="mt-4 border-solid border-2 px-4 py-2 placeholder-gray-400 focus:outline-none" type="text"
+                    name="firstName" placeholder="First Name">
+                <input class="mt-4 border-solid border-2 px-4 py-2 placeholder-gray-400 focus:outline-none" type="text"
+                    name="lastName" placeholder="Last Name">
+                <input class="mt-4 border-solid border-2 px-4 py-2 placeholder-gray-400 focus:outline-none" type="date"
+                    name="dateOfBirth" placeholder="Date of Birth">
+                <input class="mt-4 border-solid border-2 px-4 py-2 placeholder-gray-400 focus:outline-none" type="text"
+                    name="image" placeholder="Your avatar link">
+                <button type="submit" class="mt-4 bg-black p-2 text-white font-bold" id="register-button">JOIN US</button>
+                <p class="mt-4 text-center font-medium text-gray-500">Already a member? <span class="text-black underline cursor-pointer" id="login-link">Sign in</span></p>
+                <!-- <a href="#" class="mt-4 bg-red-600 p-2 text-white font-bold text-center">SIGN IN WITH GOOGLE</a> -->
+            </form>
+        </div>
+    </div>
+</div>

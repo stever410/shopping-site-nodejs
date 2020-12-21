@@ -25,6 +25,11 @@ class AuthController {
       console.log(err);
     }
   }
+
+  logout(req, res, next) {
+    req.logout();
+    res.redirect("/");
+  }
 }
 
 module.exports = new AuthController();

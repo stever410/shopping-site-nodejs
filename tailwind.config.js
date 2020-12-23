@@ -6,7 +6,12 @@ module.exports = {
       fontFamily: {
         custom: ["Quicksand", "sans-serif"],
       },
-    },
+      colors: {
+        gray: {
+          150: '#F6F6F6'
+        }
+      }
+    }
   },
   variants: {
     extend: {},

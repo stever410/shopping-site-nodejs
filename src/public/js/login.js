@@ -47,6 +47,7 @@ if (logoutButton) {
     logoutForm.submit();
   });
 }
+
 // Login form submit
 loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();

@@ -1,7 +1,7 @@
 const siteRouter = require('./site');
-const authRouter = require('./auth');
+const userRouter = require('./user');
 
 module.exports = (app) => {
   app.use("/", siteRouter);
-  app.use("/auth", authRouter);
+  app.use("/user", userRouter);
 };

@@ -35,8 +35,14 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 // Init flash message
 app.use(flash());
+
+app.use((req, res,next) => {
+  res.locals.currentUser = req.user;
+  next();
+})
 
 require('./routes/route')(app);
 

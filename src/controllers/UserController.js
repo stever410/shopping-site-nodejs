@@ -1,14 +1,17 @@
 const passport = require("passport");
 const User = require("../models/User");
-const bcrypt = require("bcrypt");
 
-class AuthController {
+class UserController {
   login(req, res, next) {
     try {
-      passport.authenticate("local-login", {
-        successRedirect: "/",
-        failureRedirect: "/",
-        failureFlash: true,
+      passport.authenticate("local-login", (err, user, info) => {
+        if(err) return next(err);
+        console.log(info);
+        if(!user) return res.json(info);
+        req.logIn(user, (err) => {
+          if(err) return next(err);
+          return res.redirect('/');
+        });
       })(req, res, next);
     } catch (err) {
       console.log(err);
@@ -32,4 +35,4 @@ class AuthController {
   }
 }
 
-module.exports = new AuthController();
+module.exports = new UserController();

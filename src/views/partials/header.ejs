@@ -3,16 +3,16 @@
         <i class="fas fa-search text-gray-700 mx-3"></i>
         <input class="placeholder-gray-700 focus:outline-none bg-transparent p-1" type="text" placeholder="Search">
     </form>
-    <a href="#">
+    <a href="/">
         <img class="w-12 h-12" src="/images/icons/nike.svg">
     </a>
     <div class="flex justify-content items-center">
-        <% if (typeof name !=='undefined' ) { %>
+        <% if (typeof currentUser !=='undefined' ) { %>
             <span>
-                <img class="w-8 h-8 rounded-full object-cover" src="<%= image %>" alt="">
+                <img class="w-8 h-8 rounded-full object-cover" src="<%= currentUser.image %>" alt="">
             </span>
-            <p class="ml-5"><%= name %></p>
-            <form id="logout-form" method="POST" action="/auth/logout">
+            <p class="ml-5"><%= `${currentUser.firstName}  ${currentUser.lastName}` %></p>
+            <form id="logout-form" method="POST" action="/user/logout">
                 <i id="logout-button" class="block fas fa-sign-out-alt fa-lg cursor-pointer ml-5"></i>
             </form>
         <% } else { %>

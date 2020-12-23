@@ -22,11 +22,11 @@ module.exports = (passport) => {
       },
       async (email, password, done) => {
         await User.findOne({ email }, (err, user) => {
-          if (err) return done(err);
+          if (err) return done(req.flash("error"));
           if (!user)
-            return done(null, false, { loginMessage: "No user found" });
+            return done(null, false, { message: "No user found" });
           if (!user.validPassword(password, user.password))
-            return done(null, false, { loginMessage: "Wrong password" });
+            return done(null, false, { message: "Wrong password" });
           return done(null, user);
         });
       }

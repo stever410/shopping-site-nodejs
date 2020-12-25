@@ -7,22 +7,28 @@
         <img class="w-14 h-auto" src="/images/icons/nike.svg">
     </a>
     <div class="flex justify-content items-center">
+        <i class="block far fa-heart fa-lg mr-5 cursor-pointer"></i>
+        <i class="block fas fa-shopping-bag mr-5 fa-lg cursor-pointer"></i>
         <% if (typeof currentUser !=='undefined' ) { %>
-            <span>
-                <img class="w-8 h-8 rounded-full object-cover" src="<%= currentUser.image %>" alt="">
-            </span>
-            <p class="ml-5"><%= `${currentUser.firstName}  ${currentUser.lastName}` %></p>
-            <form id="logout-form" method="POST" action="/user/logout">
-                <i id="logout-button" class="block fas fa-sign-out-alt fa-lg cursor-pointer ml-5"></i>
-            </form>
-            <a href="/product/manage">
-                <i id="manage-product-button" class="block fas fa-archive fa-lg cursor-pointer ml-5"></i>
-            </a>
+            <div class="relative">
+                <span id="user-dropdown-button" class="flex justify-center items-center">
+                    <img class="w-8 h-8 rounded-full object-cover mr-4" src="<%= currentUser.image %>" alt="">
+                </span>
+                <div id="user-dropdown-content" class="absolute right-2 w-40 shadow-md rounded-sm hidden z-10">
+                    <p class="text-center p-4 shadow-sm block bg-white cursor-pointer"><%= `${currentUser.firstName}  ${currentUser.lastName}` %></p>
+                    <a class="p-4 shadow-sm block bg-white" href="/product/manage">
+                        <i id="manage-product-button" class="block fas fa-archive fa-lg cursor-pointer"></i>
+                        <span class="ml-1">Manage</span>
+                    </a>
+                    <form method="POST" class="p-4 shadow-sm block bg-white" action="/user/logout">
+                        <i id="logout-button" class="block fas fa-sign-out-alt fa-lg cursor-pointer"></i>
+                        <span class="ml-1">Log out</span>
+                    </form>
+                </div>
+            </div>
         <% } else { %>
             <i id="user-button" class="block far fa-user fa-lg cursor-pointer"></i>
         <% } %>
-        <i class="block far fa-heart fa-lg mx-5 cursor-pointer"></i>
-        <i class="block fas fa-shopping-bag fa-lg cursor-pointer"></i>
     </div>
 </header>
 <%- include ('login') %>

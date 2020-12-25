@@ -11,6 +11,8 @@ const registerLink = document.getElementById("register-link");
 const loginLink = document.getElementById("login-link");
 const logoutButton = document.getElementById("logout-button");
 const logoutForm = document.getElementById("logout-form");
+const userDropdownButton = document.getElementById("user-dropdown-button");
+const userDropdownContent = document.getElementById("user-dropdown-content");
 
 // Show login modal
 if (userButton) {
@@ -79,3 +81,10 @@ loginForm.addEventListener("submit", async (event) => {
     console.log(err);
   }
 });
+
+// Dropdown
+if(userDropdownButton) {
+  userDropdownButton.addEventListener("click", () => {
+    userDropdownContent.classList.toggle("hidden");
+  })
+}

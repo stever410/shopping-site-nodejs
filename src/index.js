@@ -6,9 +6,14 @@ const passport = require("passport");
 const flash = require("connect-flash");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+const methodOverride = require('method-override')
 const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
+
+// override with the X-HTTP-Method-Override header in the request
+app.use(methodOverride('_method'))
+
 
 // Config database
 mongoose.connect(process.env.MONGODB, {

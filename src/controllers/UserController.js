@@ -6,11 +6,10 @@ class UserController {
     try {
       passport.authenticate("local-login", (err, user, info) => {
         if(err) return next(err);
-        console.log(info);
         if(!user) return res.json(info);
         req.logIn(user, (err) => {
           if(err) return next(err);
-          return res.redirect('/');
+          return res.redirect('back');
         });
       })(req, res, next);
     } catch (err) {
@@ -23,7 +22,7 @@ class UserController {
     newUser.password = newUser.generateHash(newUser.password);
     try {
       await newUser.save();
-      res.redirect("/");
+      res.redirect("back");
     } catch (err) {
       console.log(err);
     }

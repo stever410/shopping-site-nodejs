@@ -31,47 +31,20 @@
             <main class="pb-10">
                 <!-- <h2 class="text-3xl mt-3">NIKE</h2> -->
                 <div class="grid gap-6 mt-8 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
-                    <div>
-                        <a href="#">
-                            <img class="block h-auto w-auto" src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/0cb8ac57-2882-4cb2-a179-c564bb0cbc42/kd13-basketball-shoe-H6g10w.jpg" alt="">
-                        </a>
-                        <div class="flex flex-col mt-4">
-                            <h4 class="font-semibold">KD13</h4>
-                            <p class="my-1 text-gray-400 font-medium">Basketball Shoe</p>
-                            <p class="text-gray-400 font-medium">$150.00</p>
+                    <% products.forEach(product => { %>
+                        <div>
+                            <a href="/product/<%= product._id %>">
+                                <img class="block h-auto w-auto"
+                                    src="<%= product.image %>"
+                                    alt="<%= product.name %>">
+                            </a>
+                            <div class="flex flex-col mt-4">
+                                <h4 class="font-semibold"><%= product.name %></h4>
+                                <p class="my-1 text-gray-400 font-medium"><%= product.category %></p>
+                                <p class="text-gray-400 font-medium">$<%= product.price %></p>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <a href="/product-detail">
-                            <img class="block h-auto w-auto" src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/7b6c54be-b1b5-4219-b3a2-cec8d2374621/air-jordan-xxxv-sisterhood-basketball-shoe-Z5q0s3.jpg" alt="">
-                        </a>
-                        <div class="flex flex-col mt-4">
-                            <h4 class="font-semibold">Air Jordan XXXV "Sisterhood"</h4>
-                            <p class="my-1 text-gray-400 font-medium">Basketball Shoe</p>
-                            <p class="text-gray-400 font-medium">$180.00</p>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="#">
-                            <img class="block h-auto w-auto" src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/7f80811a-20f6-4c70-8177-50398e8fee40/air-jordan-1-mid-se-mens-shoe-GR4N79.jpg" alt="">
-                        </a>
-                        <div class="flex flex-col mt-4">
-                            <h4 class="font-semibold">Air Jordan 1 Mid SE</h4>
-                            <p class="my-1 text-gray-400 font-medium">Men's Shoe</p>
-                            <p class="text-gray-400 font-medium">$125.00</p>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="#">
-                            <img class="block h-auto w-auto" src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/eabcbd62-9fd9-4988-83c4-9f33feea1cf1/air-force-1-07-lv8-mens-shoe-qgfv2t.jpg" alt="">
-                        </a>
-                        <div class="flex flex-col mt-4">
-                            <h4 class="font-semibold">Nike Air Force 1 '07 LV8</h4>
-                            <p class="my-1 text-gray-400 font-medium">Men's Shoe</p>
-                            <p class="text-gray-400 font-medium">$110.00</p>
-                        </div>
-                    </div>
-                </div>
+                    <% }) %>
             </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js"></script>

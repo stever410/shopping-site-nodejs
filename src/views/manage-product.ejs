@@ -38,10 +38,10 @@
                                         <%= product.price %>
                                     </td>
                                     <td class="p-4">
-                                        <%= moment(product.addedDate).format('D MMMM YYYY, h:mm:ss a') %>
+                                        <%= moment(product.created_at).format('D MMMM YYYY, h:mm:ss a') %>
                                     </td>
                                     <td class="p-4">
-                                        <%= moment(product.lastUpdatedDate).format('D MMMM YYYY, h:mm:ss a') %>
+                                        <%= moment(product.updated_at).format('D MMMM YYYY, h:mm:ss a') %>
                                     </td>
                                     <td class="p-4 mx-auto">
                                         <a id="get-product-link" href="/product/<%= product._id %>">

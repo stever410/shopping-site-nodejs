@@ -1,7 +1,9 @@
-<header class="mt-4 flex justify-between">
-    <form class="bg-gray-100 flex justify-center items-center rounded-full">
-        <i class="fas fa-search text-gray-700 mx-3"></i>
-        <input class="placeholder-gray-700 focus:outline-none bg-transparent p-1" type="text" placeholder="Search">
+<header class="md:mt-4 flex justify-between top-0 bg-white sticky md:static">
+    <form class="hidden md:block">
+        <div class="bg-gray-100 flex justify-center items-center rounded-full h-5/6">
+            <i class="fas fa-search text-gray-700 mx-3"></i>
+            <input class="placeholder-gray-700 focus:outline-none bg-transparent p-1" type="text" placeholder="Search">
+        </div>
     </form>
     <a href="/">
         <img class="w-14 h-auto" src="/images/icons/nike.svg">
@@ -12,35 +14,39 @@
         <% if (typeof currentUser !=='undefined' ) { %>
             <div class="relative">
                 <span id="user-dropdown-button" class="flex justify-center items-center">
-                    <img class="w-8 h-8 rounded-full object-cover mr-4" src="<%= currentUser.image %>" alt="">
+                    <img class="w-8 h-8 rounded-full object-cover" src="<%= currentUser.image %>" alt="">
                 </span>
-                <div id="user-dropdown-content" class="absolute right-2 w-40 shadow-md rounded-sm hidden z-10">
-                    <p class="text-center p-4 shadow-sm block bg-white cursor-pointer"><%= `${currentUser.firstName}  ${currentUser.lastName}` %></p>
+                <div id="user-dropdown-content" class="absolute right-0 w-40 shadow-md rounded-sm hidden z-10">
+                    <p class="text-center p-4 shadow-sm block bg-white cursor-pointer">
+                        <%= `${currentUser.firstName} ${currentUser.lastName}` %>
+                    </p>
                     <a class="p-4 shadow-sm block bg-white" href="/product/manage">
                         <i id="manage-product-button" class="block fas fa-archive fa-lg cursor-pointer"></i>
                         <span class="ml-1">Manage</span>
                     </a>
-                    <form method="POST" class="p-4 shadow-sm block bg-white" action="/user/logout">
-                        <i id="logout-button" class="block fas fa-sign-out-alt fa-lg cursor-pointer"></i>
-                        <span class="ml-1">Log out</span>
+                    <form method="POST" id="logout-form" class="p-4 shadow-sm block bg-white" action="/user/logout">
+                        <div id="logout-button" class="cursor-pointer">
+                            <i class="block fas fa-sign-out-alt fa-lg"></i>
+                            <span class="ml-1">Log out</span>
+                        </div>
                     </form>
                 </div>
             </div>
-        <% } else { %>
-            <i id="user-button" class="block far fa-user fa-lg cursor-pointer"></i>
-        <% } %>
+            <% } else { %>
+                <i id="user-button" class="block far fa-user fa-lg cursor-pointer"></i>
+            <% } %>
     </div>
 </header>
 <%- include ('login') %>
-<%- include ('register') %>
-<nav class="mt-10 mx-auto pl-8">
-    <ul class="flex justify-center space-x-6">
-        <li><a href="#" class="font-medium no-underline hover:text-gray-500">New Releases</a></li>
-        <li><a href="#" class="font-medium no-underline hover:text-gray-500">Men</a></li>
-        <li><a href="#" class="font-medium no-underline hover:text-gray-500">Women</a></li>
-        <li><a href="#" class="font-medium no-underline hover:text-gray-500">Kids</a></li>
-        <li><a href="#" class="font-medium no-underline hover:text-gray-500">Customize</a></li>
-        <li><a href="#" class="font-medium no-underline hover:text-gray-500">Sale</a></li>
-    </ul>
-</nav>
-<hr class="mt-6">
+    <%- include ('register') %>
+        <nav class="mt-10 mx-auto pl-8 hidden md:block">
+            <ul class="flex justify-center space-x-6">
+                <li><a href="#" class="font-medium no-underline hover:text-gray-500">New Releases</a></li>
+                <li><a href="#" class="font-medium no-underline hover:text-gray-500">Men</a></li>
+                <li><a href="#" class="font-medium no-underline hover:text-gray-500">Women</a></li>
+                <li><a href="#" class="font-medium no-underline hover:text-gray-500">Kids</a></li>
+                <li><a href="#" class="font-medium no-underline hover:text-gray-500">Customize</a></li>
+                <li><a href="#" class="font-medium no-underline hover:text-gray-500">Sale</a></li>
+            </ul>
+        </nav>
+        <hr class="md:mt-6">
